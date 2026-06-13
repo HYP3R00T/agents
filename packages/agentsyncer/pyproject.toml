@@ -1,11 +1,13 @@
 [project]
 name = "agentsyncer"
 version = "0.1.0"
-description = "Add your description here"
+description = "Sync agent configurations across AI tools using a single source of truth"
 readme = "README.md"
 authors = [{ name = "Rajesh Das", email = "hyperoot.tech@proton.me" }]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "typer>=0.24.1",
+]
 
 [project.scripts]
 agentsyncer = "agentsyncer:main"
