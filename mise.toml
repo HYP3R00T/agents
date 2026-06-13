@@ -1,11 +1,12 @@
 [tools]
-python = "3.13"
-uv = "latest"
-ty = "latest"
-ruff = "latest"
-prek = "latest"
 gitleaks = "latest"
+prek = "latest"
+python = "3.13"
+ruff = "latest"
+rumdl = "latest"
 shellcheck = "latest"
+ty = "latest"
+uv = "latest"
 
 [settings]
 experimental = true
