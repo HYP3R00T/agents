@@ -11,18 +11,19 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "tamasfe.even-better-toml",
-        "christian-kohler.path-intellisense",
-        "ms-python.vscode-pylance",
-        "ms-python.python",
-        "ms-python.debugpy",
+        "astral-sh.ty",
         "charliermarsh.ruff",
-        "redhat.vscode-yaml",
-        "hverlin.mise-vscode",
+        "christian-kohler.path-intellisense",
         "EditorConfig.EditorConfig",
-        "timonwong.shellcheck",
-        "DavidAnson.vscode-markdownlint",
-        "github.vscode-github-actions"
+        "github.vscode-github-actions",
+        "hverlin.mise-vscode",
+        "ms-python.debugpy",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "redhat.vscode-yaml",
+        "rvben.rumdl",
+        "tamasfe.even-better-toml",
+        "timonwong.shellcheck"
       ]
     }
   }
