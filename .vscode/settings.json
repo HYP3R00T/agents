@@ -7,9 +7,16 @@
     }
   ],
   "[markdown]": {
-    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    "editor.codeActionsOnSave": {
+      "source.fixAll.rumdl": "explicit"
+    },
+    "editor.defaultFormatter": "rvben.rumdl"
   },
   "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    },
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
   "[toml]": {
@@ -24,7 +31,6 @@
     }
   },
   "chat.useAgentsMdFile": true,
-  "markdownlint.configFile": ".markdownlint.yaml",
   "python.languageServer": "None",
   "ruff.nativeServer": true
 }
