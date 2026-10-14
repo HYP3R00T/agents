@@ -1,33 +1,23 @@
 [tools]
 gitleaks = "latest"
 prek = "latest"
-python = "3.13"
-ruff = "latest"
 rumdl = "latest"
-shellcheck = "latest"
-ty = "latest"
+shellcheck = { version = "latest", os = ["linux", "macos"] }
 uv = "latest"
 
 [settings]
 experimental = true
-python.uv_venv_auto = "source"
-idiomatic_version_file_enable_tools = ["python"]
+lockfile = true
+
+[settings.github]
+use_git_credentials = true
 
 [hooks]
-enter = "bash ./scripts/enter_project.sh"
+enter = { run = "bash ./scripts/enter_project.sh" }
 
 [env]
-_.file = '.env'         # for sensitive data
-UV_LINK_MODE = "copy"
-_.python.venv = ".venv"
-
-[shell_alias]
-pya = "source ./.venv/bin/activate"
+_.file = ".env"  # for sensitive data
 
 [tasks.docs]
-run = "zensical serve --dev-addr 0.0.0.0:8000"
 description = "Serve the documentation locally"
-
-[tasks.test]
-run = "pytest --cov-report=term-missing --cov-fail-under=80"
-description = "Run fast tests with coverage report for all packages (fails under 80%)"
+run = "uvx zensical serve"

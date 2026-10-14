@@ -1,5 +1,3 @@
 ---
 icon: lucide/rocket
 ---
-
-# Welcome
