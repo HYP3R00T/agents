@@ -1,12 +1,17 @@
 [project]
 site_name = "Agents"
-site_description = "Add your description here"
+site_description = "Reusable skills, tools, and workflows for coding agents."
+site_url = "https://hyp3r00t.github.io/agents/"
 repo_name = "HYP3R00T/agents"
 repo_url = "https://github.com/HYP3R00T/agents"
 site_author = "Rajesh Das"
 copyright = "Copyright &copy; 2026 Rajesh Das"
 
-nav = [{ Home = "index.md" }]
+nav = [
+  { Home = "index.md" },
+  { Skills = [{ "commit-now" = "skills/commit-now.md" }] },
+  { Contributing = "contributing.md" },
+]
 
 [project.theme]
 language = "en"
@@ -61,7 +66,9 @@ edit = "lucide/file-pen-line"
 view = "lucide/file-braces-corner"
 
 [project.markdown_extensions.admonition]
+
 [project.markdown_extensions.pymdownx.details]
+
 [project.markdown_extensions.pymdownx.superfences]
 custom_fences = [
   { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },

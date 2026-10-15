@@ -1,17 +1,15 @@
-# Pull Request Template
+## Change
 
-## Description
+Describe the problem and resulting behavior. Identify the affected areas.
 
-Provide a brief summary of the changes introduced in this pull request. Explain the purpose and context of these changes, including any relevant background.
+## Validation
 
-## Related Issue(s)
+List relevant checks, tests, or manual verification and their results. Note anything that could not be verified.
 
-Link to the issue(s) this PR addresses (e.g., `#123`).
+## Documentation
 
-## What Changed
+Update relevant documentation and examples, or explain why no update is needed.
 
-List key changes introduced in this PR:
+## Related issues
 
-- Change 1
-- Change 2
-- Change 3
+Link any issues this resolves.

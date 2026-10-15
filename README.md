@@ -1,31 +1,15 @@
-<div align="center">
-<h1>agents</h1>
-<p>
-	<a href="https://hyp3r00t.github.io/agents/">
-		<img alt="Docs" src="https://img.shields.io/badge/docs-online-0A66C2?style=for-the-badge" />
-	</a>
-	<a href="https://github.com/sponsors/HYP3R00T">
-		<img alt="Sponsor" src="https://img.shields.io/badge/sponsor-GitHub-EA4AAA?style=for-the-badge&logo=githubsponsors&logoColor=white" />
-	</a>
-	<a href="LICENSE">
-		<img alt="License" src="https://img.shields.io/badge/license-MIT-1F883D?style=for-the-badge" />
-	</a>
-</p>
-</div>
+# Agents
 
-## Quick Start (Dev Container)
+Reusable skills and resources for coding agents. Starting with skills, this repository will grow to include other tools and workflows for agentic work.
 
-Prerequisites: Docker + VS Code with the Dev Containers extension.
+## Skills
 
-```bash
-# Clone the template
-git clone https://github.com/HYP3R00T/agents.git
+| Skill                            | Description                                                                                                  |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| [commit-now](skills/commit-now/) | Create coherent groups of Conventional Commits when explicitly invoked, respecting the requested file scope. |
 
-# Enter the project folder
-cd agents
+Explore each skill folder for its `SKILL.md` instructions and agent configuration.
 
-# Open in VS Code
-code .
-```
+See the [documentation](https://hyp3r00t.github.io/agents/) for usage and contribution guidance, or [browse the docs here](docs/index.md).
 
-Then run: `Dev Containers: Reopen in Container` from the VS Code Command Palette.
+[MIT License](LICENSE) · [Sponsor](https://github.com/sponsors/HYP3R00T)
