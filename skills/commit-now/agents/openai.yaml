@@ -1,0 +1,5 @@
+interface:
+  display_name: "Commit Now"
+  short_description: "Create coherent groups of Conventional Commits"
+policy:
+  allow_implicit_invocation: false
