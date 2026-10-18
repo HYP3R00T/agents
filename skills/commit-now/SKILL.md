@@ -1,6 +1,8 @@
 ---
 name: commit-now
 description: When explicitly invoked, create Git commits within the user's requested scope, group related whole files, and write Conventional Commit messages compatible with the repository's Commitizen rules.
+metadata:
+  version: "1.0.0"
 ---
 
 # Commit Now

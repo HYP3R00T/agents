@@ -1,0 +1,4 @@
+interface:
+  display_name: "Humanizer"
+  short_description: "Rewrite text in a natural, personal voice"
+  default_prompt: "Use $humanizer to rewrite this text so it sounds natural and personal while preserving its meaning."

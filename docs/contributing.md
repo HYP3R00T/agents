@@ -19,6 +19,8 @@ Document its purpose, setup, usage, and requirements. Keep related files togethe
 
 ### Skills
 
+Follow the skill versioning convention in the repository root's `AGENTS.md` for every skill update. Store the version in `metadata.version` and include the bump with the corresponding implementation when committing.
+
 1. Create or update `skills/<name>/SKILL.md` with YAML front matter containing `name` and `description`.
 2. Explain invocation, scope, prerequisites, behavior, and any actions that require explicit authorization. Include concrete examples.
 3. Keep supporting files in the skill folder. Add agent-specific metadata, such as `agents/openai.yaml`, when relevant.
