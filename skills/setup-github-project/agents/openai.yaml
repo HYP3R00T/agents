@@ -2,3 +2,6 @@ interface:
   display_name: "Set up GitHub Project"
   short_description: "Ensure reusable GitHub Project states and labels"
   default_prompt: "Use $setup-github-project to check and configure the GitHub Project for this repository."
+
+policy:
+  allow_implicit_invocation: false
