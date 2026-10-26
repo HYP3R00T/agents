@@ -11,6 +11,8 @@ A growing collection of reusable skills and resources for coding agents. Skills 
 | Skill                              | Description                                                                                         | Source                                                                         |
 | ---------------------------------- | --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | [commit-now](skills/commit-now.md) | Group authorized changes into coherent Conventional Commits, with explicit control over file scope. | [Skill folder](https://github.com/HYP3R00T/agents/tree/main/skills/commit-now) |
+| [humanizer](skills/humanizer.md) | Draft or revise natural prose while preserving meaning and the user's voice. | [Skill folder](https://github.com/HYP3R00T/agents/tree/main/skills/humanizer) |
+| [setup-github-project](skills/setup-github-project.md) | Set up a one-to-one GitHub Project with exactly seven statuses and baseline labels. | [Skill folder](https://github.com/HYP3R00T/agents/tree/main/skills/setup-github-project) |
 
 ## Using a skill
 

@@ -9,7 +9,11 @@ copyright = "Copyright &copy; 2026 Rajesh Das"
 
 nav = [
   { Home = "index.md" },
-  { Skills = [{ "commit-now" = "skills/commit-now.md" }] },
+  { Skills = [
+    { "commit-now" = "skills/commit-now.md" },
+    { humanizer = "skills/humanizer.md" },
+    { "setup-github-project" = "skills/setup-github-project.md" },
+  ] },
   { Contributing = "contributing.md" },
 ]
 

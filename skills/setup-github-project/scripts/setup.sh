@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Detect the current repository and add missing Project configuration.
+# Detect the current repository and configure its Project.
 set -Eeuo pipefail
 export GH_HOST=github.com
 trap 'echo "ERROR: Failed at line $LINENO; inspect GitHub before retrying. Changes may be partial." >&2' ERR
@@ -122,9 +122,8 @@ if [[ -n "${project:-}" ]]; then
   load_project
 fi
 
-# GitHub replaces the entire option list: retain existing IDs and metadata.
+# Keep the seven baseline statuses, preserving IDs and metadata for retained options.
 options=$(jq .options <<<"$status_field")
-missing=0
 while IFS= read -r expected; do
   name=$(jq -r .name <<<"$expected")
   existing=$(jq -r --arg name "$name" '
@@ -134,17 +133,24 @@ while IFS= read -r expected; do
   [[ -z "$existing" ]] || stop "Status '$existing' differs from '$name' only by case."
   echo "Missing status: $name"
   options=$(jq --argjson expected "$expected" '. + [$expected]' <<<"$options")
-  missing=$((missing + 1))
 done < <(jq -c '.statuses[]' "$baseline_file")
 
-if ((missing > 0)) && [[ "$apply" == true ]]; then
+jq -r --slurpfile baseline "$baseline_file" '
+  [.options[].name] - [$baseline[0].statuses[].name]
+  | .[] | "Remove extra status: \(.)"
+' <<<"$status_field"
+options=$(jq --slurpfile baseline "$baseline_file" '
+  [.[] | select(.name as $name | $baseline[0].statuses | any(.name == $name))]
+' <<<"$options")
+
+if [[ "$apply" == true ]] && ! jq -e --argjson options "$options" '.options == $options' <<<"$status_field" >/dev/null; then
   payload=$(jq -n --arg id "$(jq -r .id <<<"$status_field")" --argjson options "$options" '{
     query: "mutation($input: UpdateProjectV2FieldInput!) { updateProjectV2Field(input: $input) { projectV2Field { ... on ProjectV2SingleSelectField { id } } } }",
     variables: {input: {fieldId: $id, singleSelectOptions: $options}}
   }')
   result=$(gh api graphql --input - <<<"$payload")
   jq -e '.data.updateProjectV2Field != null and (.errors | length) == 0' <<<"$result" >/dev/null
-  echo "Added $missing missing status options."
+  echo 'Updated Status to exactly the seven baseline options.'
 fi
 
 read_labels() {
@@ -167,16 +173,16 @@ if [[ "$apply" == true ]]; then
   load_project
   labels=$(read_labels)
   jq -e --argjson field "$status_field" --argjson labels "$labels" '
-    ([.statuses[].name] - [$field.options[].name] | length == 0) and
+    (([.statuses[].name] | sort) == ([$field.options[].name] | sort)) and
     ([.labels[].name | ascii_downcase] - [$labels[].name | ascii_downcase] | length == 0)
   ' "$baseline_file" >/dev/null
   repository=$(gh repo view "$repo" --json nameWithOwner,id,projectsV2)
   jq -e --arg id "$project_id" '
     (.projectsV2.Nodes | length) == 1 and .projectsV2.Nodes[0].id == $id
   ' <<<"$repository" >/dev/null
-  echo 'Verified: required statuses, labels, and the one-to-one Project link are present.'
+  echo 'Verified: exactly seven baseline statuses, required labels, and the one-to-one Project link are present.'
 else
   echo 'Preview only. Nothing changed; add --apply to create missing configuration.'
 fi
 echo 'Manual checklist: disable built-in workflows; use Board layout with Status columns.'
-echo 'Existing extra statuses and labels are preserved.'
+echo 'Status uses only the seven baseline options; extra labels are preserved.'
