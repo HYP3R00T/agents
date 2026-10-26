@@ -1,0 +1,19 @@
+{
+  "statuses": [
+    {"name":"Backlog","color":"GRAY","description":"Captured work; requirements are being refined."},
+    {"name":"Ready","color":"BLUE","description":"Approved, sufficiently defined, and unblocked."},
+    {"name":"In Progress","color":"YELLOW","description":"A human or agent owns implementation."},
+    {"name":"In Review","color":"PURPLE","description":"A reviewable PR exists; revisions and feedback stay here."},
+    {"name":"Blocked","color":"RED","description":"Temporarily unable to proceed; record the blocker."},
+    {"name":"Done","color":"GREEN","description":"Agreed outcome delivered and verified."},
+    {"name":"Not Planned","color":"GRAY","description":"Not proceeding; record the reason."}
+  ],
+  "labels": [
+    {"name":"bug","color":"d73a4a","description":"Incorrect behavior"},
+    {"name":"enhancement","color":"a2eeef","description":"New features or improvements"},
+    {"name":"documentation","color":"0075ca","description":"Documentation work"},
+    {"name":"maintenance","color":"ededed","description":"Refactoring, tooling, and repository upkeep"},
+    {"name":"dependencies","color":"0366d6","description":"Dependency updates"},
+    {"name":"ci","color":"5319e7","description":"CI workflows and automation configuration"}
+  ]
+}
