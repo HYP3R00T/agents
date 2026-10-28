@@ -1,0 +1,7 @@
+interface:
+  display_name: "Refine Issue"
+  short_description: "Refine a backlog issue into a ready implementation task"
+  default_prompt: "Use $refine-issue to refine this GitHub issue into an implementation-ready task: <issue-url>"
+
+policy:
+  allow_implicit_invocation: false
